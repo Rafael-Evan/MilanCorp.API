@@ -12,7 +12,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using MilanCorp.API.Helpers;
 using MilanCorp.Domain.Identity;
 using MilanCorp.Repository;
 using System.IO;
@@ -70,6 +69,11 @@ namespace MilanCorp.API
                     };
                 });
 
+            services.AddSingleton<IFileProvider>(
+            new PhysicalFileProvider(
+                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
+
+
             services.AddMvc(options =>
             {
                 var policy = new AuthorizationPolicyBuilder()
@@ -81,7 +85,6 @@ namespace MilanCorp.API
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .ConfigureApiBehaviorOptions(o => { o.SuppressModelStateInvalidFilter = true; });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -93,12 +96,14 @@ namespace MilanCorp.API
             }
             else
             {
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
-            app.UseAuthentication();
-
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
 
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -106,7 +111,7 @@ namespace MilanCorp.API
             //Accept All HTTP Request Methods from all origins
             app.UseCors(builder =>
                 builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
-            //app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
             app.UseMvc();
         }
     }

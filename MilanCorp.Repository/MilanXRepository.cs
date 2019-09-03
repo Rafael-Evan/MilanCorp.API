@@ -7,7 +7,6 @@ namespace MilanCorp.Repository
 {
     public class MilanXRepository : IMilanXRepository
     {
-
         public readonly ApplicationDbContext _context;
 
         public MilanXRepository(ApplicationDbContext context)
@@ -34,6 +33,5 @@ namespace MilanCorp.Repository
         {
             return (await _context.SaveChangesAsync()) > 0;
         }
-
     }
 }

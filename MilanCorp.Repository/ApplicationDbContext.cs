@@ -6,8 +6,8 @@ using MilanCorp.Domain.Identity;
 namespace MilanCorp.Repository
 {
     public class ApplicationDbContext : IdentityDbContext<User, Role, int,
-                                                         IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>,
-                                                         IdentityRoleClaim<int>, IdentityUserToken<int>>
+                                                        IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>,
+                                                        IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -32,7 +32,9 @@ namespace MilanCorp.Repository
                 .HasForeignKey(ur => ur.UserId)
                 .IsRequired();
             });
+
         }
 
     }
 }
+

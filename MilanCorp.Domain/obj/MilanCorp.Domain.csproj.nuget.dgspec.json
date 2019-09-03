@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\MilanCorp.Domain.csproj": {}
+    "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\MilanCorp.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\MilanCorp.Domain.csproj": {
+    "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\MilanCorp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\MilanCorp.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\MilanCorp.Domain.csproj",
         "projectName": "MilanCorp.Domain",
-        "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\MilanCorp.Domain.csproj",
+        "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\MilanCorp.Domain.csproj",
         "packagesPath": "C:\\Users\\rafael.evangelista\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\obj\\",
+        "outputPath": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
