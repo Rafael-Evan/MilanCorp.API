@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.API\\MilanCorp.API.csproj": {}
+    "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.API\\MilanCorp.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.API\\MilanCorp.API.csproj": {
+    "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.API\\MilanCorp.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.API\\MilanCorp.API.csproj",
+        "projectUniqueName": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.API\\MilanCorp.API.csproj",
         "projectName": "MilanCorp.API",
-        "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.API\\MilanCorp.API.csproj",
+        "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.API\\MilanCorp.API.csproj",
         "packagesPath": "C:\\Users\\rafael.evangelista\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.API\\obj\\",
+        "outputPath": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -32,11 +32,11 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\MilanCorp.Domain.csproj": {
-                "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\MilanCorp.Domain.csproj"
+              "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\MilanCorp.Domain.csproj": {
+                "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\MilanCorp.Domain.csproj"
               },
-              "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Repository\\MilanCorp.Repository.csproj": {
-                "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Repository\\MilanCorp.Repository.csproj"
+              "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Repository\\MilanCorp.Repository.csproj": {
+                "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Repository\\MilanCorp.Repository.csproj"
               }
             }
           }
@@ -78,6 +78,10 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.2.3, )"
             }
           },
           "imports": [
@@ -93,14 +97,14 @@
         }
       }
     },
-    "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\MilanCorp.Domain.csproj": {
+    "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\MilanCorp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\MilanCorp.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\MilanCorp.Domain.csproj",
         "projectName": "MilanCorp.Domain",
-        "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\MilanCorp.Domain.csproj",
+        "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\MilanCorp.Domain.csproj",
         "packagesPath": "C:\\Users\\rafael.evangelista\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\obj\\",
+        "outputPath": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -132,6 +136,14 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -152,14 +164,14 @@
         }
       }
     },
-    "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Repository\\MilanCorp.Repository.csproj": {
+    "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Repository\\MilanCorp.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Repository\\MilanCorp.Repository.csproj",
+        "projectUniqueName": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Repository\\MilanCorp.Repository.csproj",
         "projectName": "MilanCorp.Repository",
-        "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Repository\\MilanCorp.Repository.csproj",
+        "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Repository\\MilanCorp.Repository.csproj",
         "packagesPath": "C:\\Users\\rafael.evangelista\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Repository\\obj\\",
+        "outputPath": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -180,8 +192,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\MilanCorp.Domain.csproj": {
-                "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\MilanCorp.Domain\\MilanCorp.Domain.csproj"
+              "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\MilanCorp.Domain.csproj": {
+                "projectPath": "C:\\Users\\rafael.evangelista\\Documents\\GitHub\\MilanCorp.API\\MilanCorp.Domain\\MilanCorp.Domain.csproj"
               }
             }
           }

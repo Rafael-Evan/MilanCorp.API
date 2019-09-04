@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MilanCorp.Domain.Identity;
+using MilanCorp.Domain.Models;
 
 namespace MilanCorp.Repository
 {
@@ -9,10 +10,9 @@ namespace MilanCorp.Repository
                                                         IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>,
                                                         IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options){}
 
-        }
+        public DbSet<Evento> Eventos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
