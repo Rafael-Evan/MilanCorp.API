@@ -52,6 +52,39 @@ namespace MilanCorp.Repository.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Eventos",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    title = table.Column<string>(nullable: true),
+                    start = table.Column<DateTime>(nullable: false),
+                    end = table.Column<DateTime>(nullable: false),
+                    finished = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Eventos", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Materiais",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    NumeroDaNota = table.Column<string>(nullable: true),
+                    DataEmissao = table.Column<DateTime>(nullable: false),
+                    Descricao = table.Column<string>(nullable: true),
+                    Valor = table.Column<decimal>(nullable: false),
+                    ValorTotal = table.Column<decimal>(nullable: false),
+                    Quantidade = table.Column<int>(nullable: false),
+                    Comissao = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Materiais", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -213,6 +246,12 @@ namespace MilanCorp.Repository.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Eventos");
+
+            migrationBuilder.DropTable(
+                name: "Materiais");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -184,6 +184,48 @@ namespace MilanCorp.Repository.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
+            modelBuilder.Entity("MilanCorp.Domain.Models.Evento", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("end");
+
+                    b.Property<bool>("finished");
+
+                    b.Property<DateTime>("start");
+
+                    b.Property<string>("title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Eventos");
+                });
+
+            modelBuilder.Entity("MilanCorp.Domain.Models.Material", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("Comissao");
+
+                    b.Property<DateTime>("DataEmissao");
+
+                    b.Property<string>("Descricao");
+
+                    b.Property<string>("NumeroDaNota");
+
+                    b.Property<int>("Quantidade");
+
+                    b.Property<decimal>("Valor");
+
+                    b.Property<decimal>("ValorTotal");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Materiais");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("MilanCorp.Domain.Identity.Role")

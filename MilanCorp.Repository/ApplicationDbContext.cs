@@ -13,6 +13,7 @@ namespace MilanCorp.Repository
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options){}
 
         public DbSet<Evento> Eventos { get; set; }
+        public DbSet<Material> Materiais { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
