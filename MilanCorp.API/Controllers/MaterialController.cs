@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using MilanCorp.Domain.Models;
 using MilanCorp.Repository;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace MilanCorp.API.Controllers
@@ -39,14 +42,77 @@ namespace MilanCorp.API.Controllers
 
         [HttpPost("cadastrarMaterial")]
         [AllowAnonymous]
-        public async Task<ActionResult<Material>> PostEvento(Material material)
+        public async Task<ActionResult<Material>> PostEvento(List<Material> materiais)
         {
-            material.Id = new Guid();
-            material.ValorTotal = material.Valor * material.Quantidade;
-            _context.Add(material);
-            await _context.SaveChangesAsync();
+            try
+            {
+                foreach (var mat in materiais)
+                {
+                    mat.Id = new Guid();
+                    _context.Add(mat);
+                    await _context.SaveChangesAsync();
+                }
+                return Ok();
+            }
+            catch (Exception)
+            {
 
-            return CreatedAtAction("GetMaterial", new { id = material.Id }, material);
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            }
+           
+        }
+
+        [HttpPost("upload")]
+        [AllowAnonymous]
+        public async Task<ActionResult> upload(ICollection<IFormFile> files)
+        {
+
+            //var nomedoArquivo = Guid.NewGuid().ToString() + ".png";
+            //var pasta = DateTime.Now.Year;
+            //if (files == null)
+            //    return Content("file not selected");
+
+            //var verificarPasta = Path.Combine(
+            //            Directory.GetCurrentDirectory(), "Fotos/CadastroMilanLeiloes/" + pasta);
+
+            //if (!Directory.Exists(verificarPasta))
+            //{
+            //    //Criamos um com o nome folder
+            //    Directory.CreateDirectory(verificarPasta);
+
+            //}
+            ////var path = Path.Combine(
+            ////           Directory.GetCurrentDirectory(), "Fotos/CadastroMilanLeiloes/" + pasta,
+            ////           files.FileName);
+
+            //var path = Path.Combine(
+            //           Directory.GetCurrentDirectory(), "Fotos/CadastroMilanLeiloes/" + pasta,
+            //           nomedoArquivo);
+            try
+            {
+                var file = Request.Form;
+                var folderName = Path.Combine("Resources", "Images");
+                var pathToSave =  Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+                //if(file.Length > 0)
+                //{
+                //    var filename = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+                //    var fullPath = Path.Combine(pathToSave, filename.Replace("\"", " ").Trim());
+
+                //    using(var stream = new FileStream(fullPath, FileMode.Create))
+                //    {
+                //        file.CopyTo(stream);
+                //    }
+                //}
+
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            }
+
         }
     }
 }

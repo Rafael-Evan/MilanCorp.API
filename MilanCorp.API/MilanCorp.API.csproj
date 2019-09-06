@@ -21,4 +21,9 @@
     <ProjectReference Include="..\MilanCorp.Repository\MilanCorp.Repository.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Resources\Materiais\" />
+  </ItemGroup>
+
 </Project>
