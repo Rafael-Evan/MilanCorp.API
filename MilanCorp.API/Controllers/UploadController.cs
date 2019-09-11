@@ -24,32 +24,33 @@ namespace MilanCorp.API.Controllers
 
         [HttpPost, DisableRequestSizeLimit]
         [AllowAnonymous]
-        public IActionResult Upload(List<IFormFile> files)
+        public IActionResult Upload(ICollection<IFormFile> files)
         {
             try
             {
-                var file = Request.Form.Files[0];
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resources", file.FileName);
-                var folderName = Path.Combine("wwwroot/Resources", "Materiais");
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-
-                if (file.Length > 0)
+                foreach (var item in Request.Form.Files)
                 {
-                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                    var fullPath = Path.Combine(pathToSave, fileName);
-                    var dbPath = Path.Combine(folderName, fileName);
-
-                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    foreach (var NomeDaPasta in Request.Form.Keys)
                     {
-                        file.CopyTo(stream);
-                    }
+                        var file = item;
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resources", file.FileName);
+                        var folderName = Path.Combine("wwwroot/Resources", NomeDaPasta);
+                        var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
-                    return Ok(new { dbPath });
+                        if (file.Length > 0)
+                        {
+                            var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                            var fullPath = Path.Combine(pathToSave, fileName);
+                            var dbPath = Path.Combine(folderName, fileName);
+
+                            using (var stream = new FileStream(fullPath, FileMode.Create))
+                            {
+                                file.CopyTo(stream);
+                            }
+                        }
+                    }
                 }
-                else
-                {
-                    return BadRequest();
-                }
+                return Ok();
             }
             catch (Exception ex)
             {

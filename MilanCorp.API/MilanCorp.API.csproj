@@ -7,6 +7,9 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\Resources\Materiais\003.jpg" />
+    <Content Remove="wwwroot\Resources\Materiais\a096b5af-a049-4010-9c2c-07f6c1515fb0.png" />
+    <Content Remove="wwwroot\Resources\Materiais\NF-19-06-2019.pdf" />
+    <Content Remove="wwwroot\Resources\Materiais\Nota.08.2019.pdf" />
     <Content Remove="wwwroot\Resources\Nota-05-08-2019.pdf" />
     <Content Remove="wwwroot\Resources\Nota.08.2019.pdf" />
   </ItemGroup>
@@ -31,6 +34,8 @@
   <ItemGroup>
     <Folder Include="Resources\Materiais\" />
     <Folder Include="wwwroot\Resources\Materiais\" />
+    <Folder Include="wwwroot\Resources\Automoveis\" />
+    <Folder Include="wwwroot\Resources\Imoveis\" />
   </ItemGroup>
 
 </Project>
