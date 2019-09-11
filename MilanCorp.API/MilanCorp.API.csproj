@@ -5,6 +5,11 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\MilanCorp.API.xml</DocumentationFile>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
   <ItemGroup>
     <Content Remove="wwwroot\Resources\Materiais\003.jpg" />
     <Content Remove="wwwroot\Resources\Materiais\a096b5af-a049-4010-9c2c-07f6c1515fb0.png" />
@@ -22,6 +27,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
 

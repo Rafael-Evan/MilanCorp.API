@@ -86,6 +86,11 @@ namespace MilanCorp.API
                 .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .ConfigureApiBehaviorOptions(o => { o.SuppressModelStateInvalidFilter = true; });
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "Portal Milanx", Version = "v1" });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -94,6 +99,13 @@ namespace MilanCorp.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                // Enable middleware to serve generated Swagger as a JSON endpoint.
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Portal Milanx V1");
+                });
             }
             else
             {
@@ -109,12 +121,12 @@ namespace MilanCorp.API
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-           //app.UseStaticFiles();
-           // app.UseStaticFiles(new StaticFileOptions()
-           // {
-           //     FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
-           //     RequestPath = new PathString("/Resources")
-           // });
+            //app.UseStaticFiles();
+            // app.UseStaticFiles(new StaticFileOptions()
+            // {
+            //     FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
+            //     RequestPath = new PathString("/Resources")
+            // });
 
             //Accept All HTTP Request Methods from all origins
             app.UseCors(builder =>

@@ -28,6 +28,7 @@ C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Deb
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.API.runtimeconfig.dev.json
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.API.dll
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.API.pdb
+C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.API.xml
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.Domain.dll
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.Repository.dll
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.Domain.pdb
