@@ -8,4 +8,9 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>S:\DEV1234</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <File Include="Program.cs">
+      <publishTime>09/11/2019 17:49:01</publishTime>
+    </File>
+  </ItemGroup>
 </Project>

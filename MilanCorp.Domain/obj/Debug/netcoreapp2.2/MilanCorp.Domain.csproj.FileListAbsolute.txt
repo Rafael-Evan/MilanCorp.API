@@ -13,7 +13,6 @@ C:\Users\rafael.evangelista\Documents\MilanCorp.Domain\obj\Debug\netcoreapp2.2\M
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\bin\Debug\netcoreapp2.2\MilanCorp.Domain.deps.json
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\bin\Debug\netcoreapp2.2\MilanCorp.Domain.dll
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\bin\Debug\netcoreapp2.2\MilanCorp.Domain.pdb
-C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Debug\netcoreapp2.2\MilanCorp.Domain.csprojAssemblyReference.cache
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Debug\netcoreapp2.2\MilanCorp.Domain.csproj.CoreCompileInputs.cache
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Debug\netcoreapp2.2\MilanCorp.Domain.AssemblyInfoInputs.cache
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Debug\netcoreapp2.2\MilanCorp.Domain.AssemblyInfo.cs
