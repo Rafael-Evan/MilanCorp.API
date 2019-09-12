@@ -26,6 +26,7 @@ namespace MilanCorp.API.Controllers
         [AllowAnonymous]
         public IActionResult Upload(ICollection<IFormFile> files)
         {
+            var upload = new FileUpload();
             try
             {
                 foreach (var item in Request.Form.Files)
@@ -46,6 +47,12 @@ namespace MilanCorp.API.Controllers
                             using (var stream = new FileStream(fullPath, FileMode.Create))
                             {
                                 file.CopyTo(stream);
+
+                                upload.Id = new Guid();
+                                upload.name = item.FileName;
+
+                                _context.Add(upload);
+                                _context.SaveChangesAsync();
                             }
                         }
                     }

@@ -1,7 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace MilanCorp.Domain.Models
 {
@@ -14,5 +11,10 @@ namespace MilanCorp.Domain.Models
         public decimal? Valor { get; set; }
         public decimal? ValorTotal { get; set; }
         public int? Quantidade { get; set; }
+        public Guid UploadId { get; set; }
+
+        public virtual FileUpload Upload { get; set; }
+
+        
     }
 }

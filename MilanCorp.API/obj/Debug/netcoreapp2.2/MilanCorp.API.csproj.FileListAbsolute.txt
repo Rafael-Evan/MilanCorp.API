@@ -43,3 +43,4 @@ C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Deb
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.csproj.CopyComplete
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.dll
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.pdb
+C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\web.config

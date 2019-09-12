@@ -34,6 +34,16 @@ namespace MilanCorp.Repository
                 .IsRequired();
             });
 
+            builder.Entity<Material>(material =>
+            {
+                material.HasKey(ur => new { ur.Id });
+
+                material.HasOne(ur => ur.Upload)
+                .WithMany(r => r.Materiais)
+                .HasForeignKey(ur => ur.UploadId)
+                .IsRequired();
+            });
+
         }
 
     }
