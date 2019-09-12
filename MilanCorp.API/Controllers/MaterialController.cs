@@ -48,6 +48,7 @@ namespace MilanCorp.API.Controllers
                 foreach (var mat in materiais)
                 {
                     mat.Id = new Guid();
+                    mat.UploadId = new Guid("{258110F7-96CD-48F2-85B0-9885CE33991D}");
                     _context.Add(mat);
                     await _context.SaveChangesAsync();
                 }

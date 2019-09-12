@@ -20,7 +20,6 @@ namespace MilanCorp.API
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
              .UseStartup<Startup>()
-             .UseIISIntegration()
              .Build();
 
     }

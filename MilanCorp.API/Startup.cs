@@ -70,10 +70,6 @@ namespace MilanCorp.API
                     };
                 });
 
-            services.AddSingleton<IFileProvider>(
-            new PhysicalFileProvider(
-                Path.Combine(Directory.GetCurrentDirectory(), "Resources")));
-
             services.AddMvc(options =>
             {
                 var policy = new AuthorizationPolicyBuilder()
