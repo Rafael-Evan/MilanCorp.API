@@ -45,41 +45,37 @@ namespace MilanCorp.API.Controllers
                             Directory.CreateDirectory(pathToSave);
                         }
 
-                        if (file.Length > 0)
+                        if (file.FileName == "ArquivoNFe.pdf")
                         {
-                            var verificarArquivo = file.FileName.Remove(file.FileName.Length - 4, 4);
-                            if (verificarArquivo == "ArquivoNFe")
+                            filename = "NF_" + filename;
+                            NF_fileNameOfExtension = filename.Remove(filename.Length - 4, 4);
+                        }
+                        else
+                        {
+                            filename = "Termo_" + filename;
+                            TERMO_NF_fileNameOfExtension = filename.Remove(filename.Length - 4, 4);
+                        }
+
+                        var fullPath = Path.Combine(pathToSave, filename);
+                        //var dbPath = Path.Combine(folderName, filename);
+
+                        using (var stream = new FileStream(fullPath, FileMode.Create))
+                        {
+                            file.CopyTo(stream);
+
+                            upload.nomeDaNota = NF_fileNameOfExtension;
+                            upload.termoDeAceite = TERMO_NF_fileNameOfExtension;
+
+
+                            if (upload.termoDeAceite != "" && upload.nomeDaNota != "")
                             {
-                                filename = "NF_" + filename;
-                                NF_fileNameOfExtension = filename.Remove(filename.Length - 4, 4);
-                            }
-                            else
-                            {
-                                filename = "Termo_" + filename;
-                                TERMO_NF_fileNameOfExtension = filename.Remove(filename.Length - 4, 4);
-                            }
-
-                            var fullPath = Path.Combine(pathToSave, filename);
-                            var dbPath = Path.Combine(folderName, filename);
-
-                            using (var stream = new FileStream(fullPath, FileMode.Create))
-                            {
-                                file.CopyTo(stream);
-
-                                upload.nomeDaNota = NF_fileNameOfExtension;
-                                upload.termoDeAceite = TERMO_NF_fileNameOfExtension;
-                                
-
-                                if (upload.termoDeAceite != "" && upload.nomeDaNota != "")
-                                {
-                                    upload.Id = new Guid();
-                                    upload.type = Path.GetExtension(filename);
-                                    upload.pasta = NomeDaPasta;
-                                    upload.ano = ano;
-                                    upload.data = DateTime.Now;
-                                    _context.Add(upload);
-                                    _context.SaveChangesAsync();
-                                }
+                                upload.Id = new Guid();
+                                upload.type = Path.GetExtension(filename);
+                                upload.pasta = NomeDaPasta;
+                                upload.ano = ano;
+                                upload.data = DateTime.Now;
+                                _context.Add(upload);
+                                _context.SaveChangesAsync();
                             }
                         }
                     }
