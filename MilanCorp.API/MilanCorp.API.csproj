@@ -39,7 +39,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Resources\Materiais\" />
     <Folder Include="wwwroot\Resources\Materiais\" />
     <Folder Include="wwwroot\Resources\Automoveis\" />
     <Folder Include="wwwroot\Resources\Imoveis\" />

@@ -42,6 +42,11 @@ namespace MilanCorp.Repository
                 .WithMany(r => r.Materiais)
                 .HasForeignKey(ur => ur.UploadId)
                 .IsRequired();
+
+                material.HasOne(ur => ur.Usuario)
+                .WithMany(r => r.Materiais)
+                .HasForeignKey(ur => ur.UserId)
+                .IsRequired();
             });
 
         }

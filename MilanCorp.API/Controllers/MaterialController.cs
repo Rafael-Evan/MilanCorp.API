@@ -45,12 +45,18 @@ namespace MilanCorp.API.Controllers
         {
             try
             {
-                foreach (var mat in materiais)
+                if (materiais.Count < 1)
                 {
-                    mat.Id = new Guid();
-                    mat.UploadId = new Guid("{258110F7-96CD-48F2-85B0-9885CE33991D}");
-                    _context.Add(mat);
-                    await _context.SaveChangesAsync();
+                    return this.StatusCode(StatusCodes.Status400BadRequest, "Banco de Dados Falhou");
+                }
+                else
+                {
+                    foreach (var mat in materiais)
+                    {
+                        mat.Id = new Guid();
+                        _context.Add(mat);
+                        await _context.SaveChangesAsync();
+                    }
                 }
                 return Ok();
             }

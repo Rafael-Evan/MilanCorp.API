@@ -7,10 +7,12 @@ namespace MilanCorp.Domain.Models
     public class FileUpload
     {
         public Guid Id { get; set; }
-        public string name { get; set; }
-        public int size { get; set; }
+        public string nomeDaNota { get; set; }
+        public string termoDeAceite { get; set; }
+        public string pasta { get; set; }
+        public int ano { get; set; }
+        public DateTime data { get; set; }
         public string type { get; set; }
-        public int lastModified { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<Material> Materiais { get; set; }

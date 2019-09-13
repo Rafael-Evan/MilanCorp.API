@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MilanCorp.Domain.Identity;
+using System;
 
 namespace MilanCorp.Domain.Models
 {
@@ -12,9 +13,11 @@ namespace MilanCorp.Domain.Models
         public decimal? ValorTotal { get; set; }
         public int? Quantidade { get; set; }
         public Guid UploadId { get; set; }
-
+        public int UserId { get; set; }
         public virtual FileUpload Upload { get; set; }
 
-        
+        public virtual User Usuario { get; set; }
+
+
     }
 }

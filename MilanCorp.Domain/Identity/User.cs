@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using MilanCorp.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,5 +13,6 @@ namespace MilanCorp.Domain.Identity
         public string FullName { get; set; }
         public DateTime Data { get; set; }
         public List<UserRole> UserRoles { get; set; }
+        public List<Material> Materiais { get; set; }
     }
 }

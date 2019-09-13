@@ -77,6 +77,23 @@ namespace MilanCorp.API.Controllers
 
         }
 
+        [HttpGet("UserName")]
+        [AllowAnonymous]
+        public async Task<ActionResult> GetPorUserName(string userName)
+        {
+            try
+            {
+                var user = await _userManager.FindByNameAsync(userName);
+
+                return Ok(user);
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            }
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult> GetUser()
