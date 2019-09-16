@@ -10,7 +10,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
   </PropertyGroup>
   <ItemGroup>
     <File Include="Program.cs">
-      <publishTime>09/11/2019 17:49:01</publishTime>
+      <publishTime>11/09/2019 17:49:01</publishTime>
     </File>
   </ItemGroup>
 </Project>
