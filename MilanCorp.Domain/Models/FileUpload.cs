@@ -14,7 +14,6 @@ namespace MilanCorp.Domain.Models
         public DateTime data { get; set; }
         public string type { get; set; }
 
-        [JsonIgnore]
         public virtual ICollection<Material> Materiais { get; set; }
 
 

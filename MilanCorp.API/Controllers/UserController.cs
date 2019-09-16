@@ -77,15 +77,15 @@ namespace MilanCorp.API.Controllers
 
         }
 
-        [HttpGet("UserName")]
+        [HttpPost("UserName")]
         [AllowAnonymous]
-        public async Task<ActionResult> GetPorUserName(string userName)
+        public async Task<IActionResult> GetPorUserName(UserLoginDto userLogin)
         {
             try
             {
-                var user = await _userManager.FindByNameAsync(userName);
+                var user = await _userManager.FindByNameAsync(userLogin.UserName);
 
-                return Ok(user);
+                return Ok(user.Id);
             }
             catch (Exception)
             {

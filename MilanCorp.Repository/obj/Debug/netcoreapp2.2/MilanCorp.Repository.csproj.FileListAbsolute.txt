@@ -24,5 +24,3 @@ C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Repository\
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Repository\obj\Debug\netcoreapp2.2\MilanCorp.Repository.csproj.CopyComplete
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Repository\obj\Debug\netcoreapp2.2\MilanCorp.Repository.dll
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Repository\obj\Debug\netcoreapp2.2\MilanCorp.Repository.pdb
-C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Repository\bin\Debug\netcoreapp2.2\Newtonsoft.Json.dll
-C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Repository\bin\Debug\netcoreapp2.2\Newtonsoft.Json.xml
