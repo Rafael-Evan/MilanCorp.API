@@ -7,6 +7,7 @@ using MilanCorp.Repository;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MilanCorp.API.Controllers
@@ -24,20 +25,33 @@ namespace MilanCorp.API.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult> GetMaterial()
+        public async Task<Material[]> GetMaterial()
         {
-            try
-            {
-                var results = await _context.Materiais.ToListAsync();
+            IQueryable<Material> query = _context.Materiais
+                .Include(c => c.Upload)
+                .Include(c => c.Usuario);
 
-                return Ok(results);
-            }
-            catch (Exception)
-            {
-
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
-            }
+                return await query.ToArrayAsync();
+            
         }
+
+
+        //[HttpGet]
+        //[AllowAnonymous]
+        //public async Task<ActionResult> GetMaterial()
+        //{
+        //    try
+        //    {
+        //        var results = await _context.Materiais.ToListAsync();
+
+        //        return Ok(results);
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+        //    }
+        //}
 
         [HttpPost("cadastrarMaterial")]
         [AllowAnonymous]
@@ -53,7 +67,7 @@ namespace MilanCorp.API.Controllers
                 {
                     foreach (var mat in materiais)
                     {
-                        mat.Id = new Guid();
+                        mat.Id = Guid.NewGuid();
                         _context.Add(mat);
                         await _context.SaveChangesAsync();
                     }

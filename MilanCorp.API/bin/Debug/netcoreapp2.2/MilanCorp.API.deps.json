@@ -681,6 +681,7 @@
       },
       "MilanCorp.Repository/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.2.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.6",
           "Microsoft.Extensions.Identity.Stores": "2.2.0",
           "MilanCorp.Domain": "1.0.0"

@@ -202,12 +202,35 @@ namespace MilanCorp.Repository.Migrations
                     b.ToTable("Eventos");
                 });
 
-            modelBuilder.Entity("MilanCorp.Domain.Models.Material", b =>
+            modelBuilder.Entity("MilanCorp.Domain.Models.FileUpload", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<decimal>("Comissao");
+                    b.Property<int>("ano");
+
+                    b.Property<DateTime>("data");
+
+                    b.Property<string>("nomeDaNota");
+
+                    b.Property<string>("pasta");
+
+                    b.Property<string>("termoDeAceite");
+
+                    b.Property<string>("type");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Uploads");
+                });
+
+            modelBuilder.Entity("MilanCorp.Domain.Models.Material", b =>
+                {
+                    b.Property<Guid>("Id");
+
+                    b.Property<Guid>("UploadId");
+
+                    b.Property<int>("UserId");
 
                     b.Property<DateTime>("DataEmissao");
 
@@ -215,13 +238,19 @@ namespace MilanCorp.Repository.Migrations
 
                     b.Property<string>("NumeroDaNota");
 
-                    b.Property<int>("Quantidade");
+                    b.Property<int?>("Quantidade");
 
-                    b.Property<decimal>("Valor");
+                    b.Property<decimal?>("Valor");
 
-                    b.Property<decimal>("ValorTotal");
+                    b.Property<decimal?>("ValorTotal");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id", "UploadId", "UserId");
+
+                    b.HasAlternateKey("Id");
+
+                    b.HasIndex("UploadId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Materiais");
                 });
@@ -267,6 +296,19 @@ namespace MilanCorp.Repository.Migrations
 
                     b.HasOne("MilanCorp.Domain.Identity.User", "User")
                         .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MilanCorp.Domain.Models.Material", b =>
+                {
+                    b.HasOne("MilanCorp.Domain.Models.FileUpload", "Upload")
+                        .WithMany("Materiais")
+                        .HasForeignKey("UploadId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MilanCorp.Domain.Identity.User", "Usuario")
+                        .WithMany("Materiais")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

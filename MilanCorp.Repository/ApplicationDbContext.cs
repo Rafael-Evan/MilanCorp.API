@@ -10,13 +10,15 @@ namespace MilanCorp.Repository
                                                         IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>,
                                                         IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options){}
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<Evento> Eventos { get; set; }
-        public DbSet<Material> Materiais { get; set; }
+        public virtual DbSet<Evento> Eventos { get; set; }
+        public virtual DbSet<Material> Materiais { get; set; }
+        public virtual DbSet<FileUpload> Uploads { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
             base.OnModelCreating(builder);
 
             builder.Entity<UserRole>(userRole =>
@@ -34,20 +36,23 @@ namespace MilanCorp.Repository
                 .IsRequired();
             });
 
-            builder.Entity<Material>(material =>
-            {
-                material.HasKey(ur => new { ur.Id });
+            builder.Entity<Material>()
+                 .HasKey(PE => new {PE.Id, PE.UploadId, PE.UserId });
 
-                material.HasOne(ur => ur.Upload)
-                .WithMany(r => r.Materiais)
-                .HasForeignKey(ur => ur.UploadId)
-                .IsRequired();
+            //builder.Entity<Material>(material =>
+            //{
+            //    material.HasKey(ur => new { ur.Id });
 
-                material.HasOne(ur => ur.Usuario)
-                .WithMany(r => r.Materiais)
-                .HasForeignKey(ur => ur.UserId)
-                .IsRequired();
-            });
+            //    material.HasOne(ur => ur.Upload)
+            //    .WithMany(r => r.Materiais)
+            //    .HasForeignKey(ur => ur.UploadId)
+            //    .HasConstraintName("FK_Materiais_Upload");
+
+            //    material.HasOne(ur => ur.Usuario)
+            //    .WithMany(r => r.Materiais)
+            //    .HasForeignKey(ur => ur.UserId)
+            //    .HasConstraintName("FK_Materiais_User");
+            //});
 
         }
 

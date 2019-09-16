@@ -5,6 +5,6 @@ namespace MilanCorp.Domain.Identity
 {
     public class Role : IdentityRole<int>
     {
-        public List<UserRole> UserRoles { get; set; }
+        public virtual List<UserRole> UserRoles { get; set; }
     }
 }

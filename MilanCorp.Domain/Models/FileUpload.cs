@@ -13,9 +13,7 @@ namespace MilanCorp.Domain.Models
         public int ano { get; set; }
         public DateTime data { get; set; }
         public string type { get; set; }
-
-        public virtual ICollection<Material> Materiais { get; set; }
-
+        public List<Material> Materiais { get; set; }
 
     }
 }

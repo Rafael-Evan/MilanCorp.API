@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MilanCorp.Domain.Models;
 using MilanCorp.Repository;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MilanCorp.API.Controllers
 {
@@ -18,6 +21,34 @@ namespace MilanCorp.API.Controllers
         {
             _context = context;
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<FileUpload[]> GetUploads()
+        {
+            IQueryable<FileUpload> query = _context.Uploads
+                .Include(c => c.Materiais);
+
+            return await query.ToArrayAsync();
+
+        }
+
+        //[HttpGet]
+        //[AllowAnonymous]
+        //public async Task<ActionResult> GetUploads()
+        //{
+        //    try
+        //    {
+        //        var results = await _context.Uploads.ToListAsync();
+
+        //        return Ok(results);
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+        //    }
+        //}
 
         [HttpPost, DisableRequestSizeLimit]
         [AllowAnonymous]

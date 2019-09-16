@@ -12,6 +12,7 @@ using MilanCorp.Repository;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,9 +84,14 @@ namespace MilanCorp.API.Controllers
         {
             try
             {
-                var user = await _userManager.FindByNameAsync(userLogin.UserName);
+                IQueryable<User> query = _context.Users
+              .Include(c => c.Materiais)
+              .Include(c => c.UserRoles);
 
-                return Ok(user.Id);
+                query = query.Where(c => c.UserName == userLogin.UserName);
+
+                return Ok(query);
+
             }
             catch (Exception)
             {
@@ -96,20 +102,46 @@ namespace MilanCorp.API.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult> GetUser()
+        public async Task<User> GetUserById(int userId)
         {
-            try
-            {
-                var results = await _context.Users.ToListAsync();
+                IQueryable<User> query = _context.Users
+               .Include(c => c.Materiais)
+               .Include(c => c.UserRoles);
 
-                return Ok(results);
-            }
-            catch (Exception)
-            {
+                query = query.Where(c => c.Id == userId);
 
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
-            }
+                return await query.FirstOrDefaultAsync();
+           
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<User[]> GetUser(int userId)
+        {
+            IQueryable<User> query = _context.Users
+                .Include(c => c.Materiais)
+                .Include(c => c.UserRoles);
+
+            return await query.ToArrayAsync();
+
+        }
+
+        //[HttpGet]
+        //[AllowAnonymous]
+        //public async Task<ActionResult> GetUser()
+        //{
+        //    try
+        //    {
+        //        var results = await _context.Users.ToListAsync();
+
+        //        return Ok(results);
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+        //    }
+        //}
 
         [HttpPost("Register")]
         [AllowAnonymous]
