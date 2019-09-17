@@ -31,27 +31,11 @@ namespace MilanCorp.API.Controllers
                 .Include(c => c.Upload)
                 .Include(c => c.Usuario);
 
+                
+
                 return await query.ToArrayAsync();
             
         }
-
-
-        //[HttpGet]
-        //[AllowAnonymous]
-        //public async Task<ActionResult> GetMaterial()
-        //{
-        //    try
-        //    {
-        //        var results = await _context.Materiais.ToListAsync();
-
-        //        return Ok(results);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
-        //    }
-        //}
 
         [HttpPost("cadastrarMaterial")]
         [AllowAnonymous]
@@ -82,59 +66,5 @@ namespace MilanCorp.API.Controllers
 
         }
 
-
-        //[HttpPost("upload")]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> Post(List<IFormFile> files)
-        ////public async Task<IActionResult> Upload([FromForm]File files)
-        //{
-
-        //    //var nomedoArquivo = Guid.NewGuid().ToString() + ".png";
-        //    //var pasta = DateTime.Now.Year;
-        //    //if (files == null)
-        //    //    return Content("file not selected");
-
-        //    //var verificarPasta = Path.Combine(
-        //    //            Directory.GetCurrentDirectory(), "Fotos/CadastroMilanLeiloes/" + pasta);
-
-        //    //if (!Directory.Exists(verificarPasta))
-        //    //{
-        //    //    //Criamos um com o nome folder
-        //    //    Directory.CreateDirectory(verificarPasta);
-
-        //    //}
-        //    ////var path = Path.Combine(
-        //    ////           Directory.GetCurrentDirectory(), "Fotos/CadastroMilanLeiloes/" + pasta,
-        //    ////           files.FileName);
-
-        //    //var path = Path.Combine(
-        //    //           Directory.GetCurrentDirectory(), "Fotos/CadastroMilanLeiloes/" + pasta,
-        //    //           nomedoArquivo);
-        //    try
-        //    {
-        //        var file = Request.Form;
-        //        var folderName = Path.Combine("Resources", "Images");
-        //        var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-
-        //        //if(file.Length > 0)
-        //        //{
-        //        //    var filename = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
-        //        //    var fullPath = Path.Combine(pathToSave, filename.Replace("\"", " ").Trim());
-
-        //        //    using(var stream = new FileStream(fullPath, FileMode.Create))
-        //        //    {
-        //        //        file.CopyTo(stream);
-        //        //    }
-        //        //}
-
-        //        return Ok();
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
-        //    }
-
-        //}
     }
 }

@@ -29,26 +29,18 @@ namespace MilanCorp.API.Controllers
             IQueryable<FileUpload> query = _context.Uploads
                 .Include(c => c.Materiais);
 
+            foreach (var item in query)
+            {
+                foreach (var materiais in item.Materiais)
+                {
+                    var user = _context.Users.Find(materiais.UserId);
+                    materiais.Usuario.FullName = user.FullName;
+                }
+            }
+
             return await query.ToArrayAsync();
 
         }
-
-        //[HttpGet]
-        //[AllowAnonymous]
-        //public async Task<ActionResult> GetUploads()
-        //{
-        //    try
-        //    {
-        //        var results = await _context.Uploads.ToListAsync();
-
-        //        return Ok(results);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
-        //    }
-        //}
 
         [HttpPost, DisableRequestSizeLimit]
         [AllowAnonymous]

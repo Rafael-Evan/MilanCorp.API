@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MilanCorp.Domain.Identity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 

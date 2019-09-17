@@ -78,6 +78,29 @@ namespace MilanCorp.API.Controllers
 
         }
 
+        [HttpGet("FullName/{id}")]
+        [AllowAnonymous]
+        public async Task<ActionResult> GetFullName(int id)
+        {
+            try
+            {
+                var query = _context.Users;
+
+                var fullName = from user in query
+                             where user.Id == id
+                               select user.FullName;
+
+                return Ok(fullName);
+
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            }
+
+        }
+
         [HttpPost("Id")]
         [AllowAnonymous]
         public async Task<IActionResult> GetUsuarioId(UserLoginDto userLogin)
@@ -95,19 +118,19 @@ namespace MilanCorp.API.Controllers
             }
         }
 
-        [HttpPost("UserName")]
+        [HttpPost("VerificarAcessos")]
         [AllowAnonymous]
-        public async Task<IActionResult> GetPorUserName(UserLoginDto userLogin)
+        public async Task<IActionResult> VerificarAcessosUsuario(UserLoginDto userLogin)
         {
             try
             {
-                IQueryable<User> query = _context.Users
-              .Include(c => c.Materiais)
-              .Include(c => c.UserRoles);
+                var query = _context.Users;
 
-                query = query.Where(c => c.UserName == userLogin.UserName);
+                var roleId = from user in query
+                                 where user.UserName == userLogin.UserName
+                                 select user.UserRoles;
 
-                return Ok(query);
+                return Ok(roleId);
 
             }
             catch (Exception)
@@ -116,49 +139,6 @@ namespace MilanCorp.API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
             }
         }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<User> GetUserById(int userId)
-        {
-                IQueryable<User> query = _context.Users
-               .Include(c => c.Materiais)
-               .Include(c => c.UserRoles);
-
-                query = query.Where(c => c.Id == userId);
-
-                return await query.FirstOrDefaultAsync();
-           
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<User[]> GetUser(int userId)
-        {
-            IQueryable<User> query = _context.Users
-                .Include(c => c.Materiais)
-                .Include(c => c.UserRoles);
-
-            return await query.ToArrayAsync();
-
-        }
-
-        //[HttpGet]
-        //[AllowAnonymous]
-        //public async Task<ActionResult> GetUser()
-        //{
-        //    try
-        //    {
-        //        var results = await _context.Users.ToListAsync();
-
-        //        return Ok(results);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
-        //    }
-        //}
 
         [HttpPost("Register")]
         [AllowAnonymous]
