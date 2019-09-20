@@ -14,6 +14,9 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using MilanCorp.Domain.Identity;
+using MilanCorp.Domain.Interfaces;
+using MilanCorp.Domain.Models;
+using MilanCorp.Domain.Services;
 using MilanCorp.Repository;
 using System.IO;
 using System.Text;
@@ -91,6 +94,11 @@ namespace MilanCorp.API
             {
                 o.ForwardClientCertificate = false;
             });
+
+            services.Configure<LdapConfig>(Configuration.GetSection("Ldap"));
+
+            services.AddScoped<IAuthenticationService, LdapAuthenticationService>();
+
 
         }
 

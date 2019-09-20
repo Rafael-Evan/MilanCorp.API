@@ -92,7 +92,7 @@ namespace MilanCorp.API.Controllers
 
                             if (upload.termoDeAceite != "" && upload.nomeDaNota != "")
                             {
-                                upload.Id = new Guid();
+                                upload.Id = Guid.NewGuid();
                                 upload.type = Path.GetExtension(filename);
                                 upload.pasta = NomeDaPasta;
                                 upload.ano = ano;

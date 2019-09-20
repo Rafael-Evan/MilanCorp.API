@@ -20,6 +20,12 @@ C:\Users\rafael.evangelista\Documents\MilanCorp.API\obj\Debug\netcoreapp2.2\Mila
 C:\Users\rafael.evangelista\Documents\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.csproj.CopyComplete
 C:\Users\rafael.evangelista\Documents\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.dll
 C:\Users\rafael.evangelista\Documents\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.pdb
+C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.csprojAssemblyReference.cache
+C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.csproj.CoreCompileInputs.cache
+C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.RazorAssemblyInfo.cache
+C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.RazorAssemblyInfo.cs
+C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.AssemblyInfoInputs.cache
+C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.AssemblyInfo.cs
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\appsettings.Development.json
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\appsettings.json
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
@@ -33,12 +39,6 @@ C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Deb
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.Repository.dll
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.Domain.pdb
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.Repository.pdb
-C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.csprojAssemblyReference.cache
-C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.csproj.CoreCompileInputs.cache
-C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.RazorAssemblyInfo.cache
-C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.RazorAssemblyInfo.cs
-C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.AssemblyInfoInputs.cache
-C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.AssemblyInfo.cs
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.RazorTargetAssemblyInfo.cache
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.csproj.CopyComplete
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.dll
