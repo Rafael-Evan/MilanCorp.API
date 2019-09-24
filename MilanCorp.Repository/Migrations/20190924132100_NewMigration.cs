@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace MilanCorp.Repository.Migrations
 {
@@ -44,7 +44,8 @@ namespace MilanCorp.Repository.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(150)", nullable: true),
-                    Data = table.Column<DateTime>(nullable: false)
+                    Data = table.Column<DateTime>(nullable: false),
+                    UsuarioAD = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

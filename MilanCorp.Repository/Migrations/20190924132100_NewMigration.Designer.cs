@@ -10,7 +10,7 @@ using MilanCorp.Repository;
 namespace MilanCorp.Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190918134422_NewMigration")]
+    [Migration("20190924132100_NewMigration")]
     partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -159,6 +159,8 @@ namespace MilanCorp.Repository.Migrations
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
+
+                    b.Property<bool>("UsuarioAD");
 
                     b.HasKey("Id");
 

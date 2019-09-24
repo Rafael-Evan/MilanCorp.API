@@ -37,7 +37,7 @@ namespace MilanCorp.Repository
             });
 
             builder.Entity<Material>()
-                 .HasKey(PE => new {PE.Id, PE.UploadId, PE.UserId });
+                 .HasKey(PE => new { PE.Id, PE.UploadId, PE.UserId });
 
             //builder.Entity<Material>(material =>
             //{

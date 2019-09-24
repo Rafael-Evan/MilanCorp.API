@@ -1,11 +1,12 @@
-﻿
-
-using MilanCorp.Domain.Models;
-
-namespace MilanCorp.Domain.Interfaces
+﻿namespace MilanCorp.Domain.Interfaces
 {
-    public interface IAuthenticationService
-    {
-        UserLDAP Login(string userName, string password);
-    }
+    //public interface IAuthenticationService
+    //{
+    //    UserLDAP Login(string userName, string password);
+
+    //    UserLDAP RegisterUsersAD();
+
+    //    UserLDAP CheckUserAD(string userName, string password);
+
+    //}
 }

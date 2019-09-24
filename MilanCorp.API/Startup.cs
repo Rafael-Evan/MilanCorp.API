@@ -3,22 +3,19 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using MilanCorp.API.Interfaces;
+using MilanCorp.API.Services;
 using MilanCorp.Domain.Identity;
-using MilanCorp.Domain.Interfaces;
 using MilanCorp.Domain.Models;
-using MilanCorp.Domain.Services;
 using MilanCorp.Repository;
-using System.IO;
 using System.Text;
 
 namespace MilanCorp.API
@@ -50,7 +47,7 @@ namespace MilanCorp.API
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
-                options.Password.RequiredLength = 6;
+                options.Password.RequiredLength = 4;
 
             });
 

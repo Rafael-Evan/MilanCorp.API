@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MilanCorp.API.Dtos;
+using MilanCorp.API.Interfaces;
 using MilanCorp.Domain.Identity;
 using MilanCorp.Repository;
 using System;
@@ -28,18 +29,21 @@ namespace MilanCorp.API.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IMapper _mapper;
+        private readonly IAuthenticationService _authService;
 
         public UserController(ApplicationDbContext context,
                               IConfiguration config,
                               UserManager<User> userManager,
                               SignInManager<User> signInManager,
-                              IMapper mapper)
+                              IMapper mapper,
+                              IAuthenticationService authService)
         {
             _context = context;
             _config = config;
             _userManager = userManager;
             _signInManager = signInManager;
             _mapper = mapper;
+            _authService = authService;
         }
 
 
@@ -50,6 +54,27 @@ namespace MilanCorp.API.Controllers
             try
             {
                 var user = await _userManager.FindByNameAsync(userLogin.UserName);
+
+                if (user == null)
+                {
+                    var currentUser = _authService.CheckUserAD(userLogin.UserName, userLogin.Password);
+
+                    await Register(currentUser);
+
+                    if (currentUser != null)
+                    {
+                        return await Login(userLogin);
+                    }
+                    else
+                    {
+                        return Unauthorized();
+                    }
+                }
+
+                if (user.UserAD == true)
+                {
+                    return await LoginAD(userLogin);
+                }
 
                 var result = await _signInManager.CheckPasswordSignInAsync(user, userLogin.Password, false);
 
@@ -78,6 +103,40 @@ namespace MilanCorp.API.Controllers
 
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> LoginAD(UserLoginDto userLogin)
+        {
+            try
+            {
+                var user = _authService.Login(userLogin.UserName, userLogin.Password);
+                if (null != user)
+                {
+                    var userDB = await _userManager.FindByNameAsync(userLogin.UserName);
+
+                    var appUser = await _userManager.Users
+                            .FirstOrDefaultAsync(u => u.NormalizedUserName == userLogin.UserName.ToUpper());
+
+                    var userToReturn = _mapper.Map<UserLoginDto>(appUser);
+
+                    return Ok(new
+                    {
+
+                        token = GenarateJwToken(userDB).Result,
+                        user = userToReturn
+
+                    });
+                }
+                return Unauthorized();
+            }
+            catch (Exception ex)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco de dados Falhou{ex.Message}");
+            }
+        }
+
+
         [HttpGet("FullName/{id}")]
         [AllowAnonymous]
         public async Task<ActionResult> GetFullName(int id)
@@ -87,7 +146,7 @@ namespace MilanCorp.API.Controllers
                 var query = _context.Users;
 
                 var fullName = from user in query
-                             where user.Id == id
+                               where user.Id == id
                                select user.FullName;
 
                 return Ok(fullName);
@@ -127,8 +186,8 @@ namespace MilanCorp.API.Controllers
                 var query = _context.Users;
 
                 var roleId = from user in query
-                                 where user.UserName == userLogin.UserName
-                                 select user.UserRoles;
+                             where user.UserName == userLogin.UserName
+                             select user.UserRoles;
 
                 return Ok(roleId);
 
@@ -139,6 +198,7 @@ namespace MilanCorp.API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
             }
         }
+
 
         [HttpPost("Register")]
         [AllowAnonymous]
@@ -157,6 +217,12 @@ namespace MilanCorp.API.Controllers
 
                 if (result.Succeeded)
                 {
+                    var userRole = new UserRole();
+                    userRole.UserId = user.Id;
+                    userRole.RoleId = 2;
+                    _context.Add(userRole);
+                    _context.SaveChanges();
+
                     return Created("GetUser", userToReturn);
                 }
 

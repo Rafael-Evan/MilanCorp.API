@@ -158,6 +158,8 @@ namespace MilanCorp.Repository.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
 
+                    b.Property<bool>("UsuarioAD");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")

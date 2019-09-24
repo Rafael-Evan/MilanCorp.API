@@ -1,6 +1,4 @@
-﻿using MilanCorp.Domain.Identity;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace MilanCorp.Domain.Models

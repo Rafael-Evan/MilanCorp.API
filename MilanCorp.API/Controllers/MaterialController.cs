@@ -6,7 +6,6 @@ using MilanCorp.Domain.Models;
 using MilanCorp.Repository;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,10 +30,10 @@ namespace MilanCorp.API.Controllers
                 .Include(c => c.Upload)
                 .Include(c => c.Usuario);
 
-                
 
-                return await query.ToArrayAsync();
-            
+
+            return await query.ToArrayAsync();
+
         }
 
         [HttpPost("cadastrarMaterial")]

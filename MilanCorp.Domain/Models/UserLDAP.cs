@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MilanCorp.Domain.Models
 {
@@ -9,6 +6,10 @@ namespace MilanCorp.Domain.Models
     {
         public string UserName { get; set; }
         public string DisplayName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+
         // other properties
     }
 }

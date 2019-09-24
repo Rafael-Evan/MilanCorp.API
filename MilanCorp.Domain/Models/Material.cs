@@ -1,7 +1,6 @@
 ﻿using MilanCorp.Domain.Identity;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MilanCorp.Domain.Models
 {
