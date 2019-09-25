@@ -34,6 +34,10 @@ namespace MilanCorp.API
         {
             services.AddAutoMapper();
 
+            services.AddDbContext<MLSistemaContext>(options =>
+              options.UseSqlServer(
+                  Configuration.GetConnectionString("MLSistemaConnection")));
+
             services.AddDbContext<ApplicationDbContext>(options =>
               options.UseSqlServer(
                   Configuration.GetConnectionString("DefaultConnection"),
@@ -53,6 +57,7 @@ namespace MilanCorp.API
 
             builder = new IdentityBuilder(builder.UserType, typeof(Role), builder.Services);
             builder.AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.AddEntityFrameworkStores<MLSistemaContext>();
             builder.AddRoleValidator<RoleValidator<Role>>();
             builder.AddRoleManager<RoleManager<Role>>();
             builder.AddSignInManager<SignInManager<User>>();

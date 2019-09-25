@@ -103,7 +103,7 @@ namespace MilanCorp.API.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost("LoginAD")]
         [AllowAnonymous]
         public async Task<IActionResult> LoginAD(UserLoginDto userLogin)
         {
@@ -162,7 +162,7 @@ namespace MilanCorp.API.Controllers
 
         [HttpPost("Id")]
         [AllowAnonymous]
-        public async Task<IActionResult> GetUsuarioId(UserLoginDto userLogin)
+        public async Task<IActionResult> GetUserId(UserLoginDto userLogin)
         {
             try
             {

@@ -155,10 +155,10 @@ namespace MilanCorp.Repository.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
+                    b.Property<bool>("UserAD");
+
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
-
-                    b.Property<bool>("UsuarioAD");
 
                     b.HasKey("Id");
 
@@ -191,11 +191,21 @@ namespace MilanCorp.Repository.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("end");
+                    b.Property<DateTime?>("end");
 
-                    b.Property<bool>("finished");
+                    b.Property<string>("endereco");
 
-                    b.Property<DateTime>("start");
+                    b.Property<bool?>("finished");
+
+                    b.Property<string>("leilao");
+
+                    b.Property<string>("nomeDoComitente");
+
+                    b.Property<string>("observacao");
+
+                    b.Property<DateTime?>("start");
+
+                    b.Property<int>("tipoDeLeilao");
 
                     b.Property<string>("title");
 

@@ -21,6 +21,7 @@ C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\UsersAD.poc\bin\Debug
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\UsersAD.poc\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\UsersAD.poc\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\UsersAD.poc\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\UsersAD.poc\obj\Debug\netcoreapp3.0\UsersAD.poc.csprojAssemblyReference.cache
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\UsersAD.poc\obj\Debug\netcoreapp3.0\UsersAD.poc.csproj.CoreCompileInputs.cache
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\UsersAD.poc\obj\Debug\netcoreapp3.0\UsersAD.poc.AssemblyInfoInputs.cache
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\UsersAD.poc\obj\Debug\netcoreapp3.0\UsersAD.poc.AssemblyInfo.cs

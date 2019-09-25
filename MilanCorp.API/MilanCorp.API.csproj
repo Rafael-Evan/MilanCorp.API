@@ -11,6 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\MLSistema\MlcomitenteController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="wwwroot\Resources\Materiais\003.jpg" />
     <Content Remove="wwwroot\Resources\Materiais\a096b5af-a049-4010-9c2c-07f6c1515fb0.png" />
     <Content Remove="wwwroot\Resources\Materiais\NF-19-06-2019.pdf" />
