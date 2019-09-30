@@ -1,17 +1,3 @@
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\bin\Debug\netcoreapp2.2\MilanCorp.Repository.deps.json
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\bin\Debug\netcoreapp2.2\MilanCorp.Repository.dll
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\bin\Debug\netcoreapp2.2\MilanCorp.Repository.pdb
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\bin\Debug\netcoreapp2.2\MilanCorp.Domain.dll
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\bin\Debug\netcoreapp2.2\MilanCorp.Domain.pdb
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\obj\Debug\netcoreapp2.2\MilanCorp.Repository.csprojAssemblyReference.cache
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\obj\Debug\netcoreapp2.2\MilanCorp.Repository.csproj.CoreCompileInputs.cache
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\obj\Debug\netcoreapp2.2\MilanCorp.Repository.AssemblyInfoInputs.cache
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\obj\Debug\netcoreapp2.2\MilanCorp.Repository.AssemblyInfo.cs
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\obj\Debug\netcoreapp2.2\MilanCorp.Repository.csproj.CopyComplete
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\obj\Debug\netcoreapp2.2\MilanCorp.Repository.dll
-C:\Users\rafael.evangelista\Documents\MilanCorp.Repository\obj\Debug\netcoreapp2.2\MilanCorp.Repository.pdb
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Repository\bin\Debug\netcoreapp2.2\MilanCorp.Repository.deps.json
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Repository\bin\Debug\netcoreapp2.2\MilanCorp.Repository.runtimeconfig.json
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Repository\bin\Debug\netcoreapp2.2\MilanCorp.Repository.runtimeconfig.dev.json

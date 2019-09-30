@@ -1,5 +1,4 @@
-﻿using MilanCorp.Domain.Enums;
-using System;
+﻿using System;
 
 namespace MilanCorp.Domain.Models
 {
@@ -14,6 +13,6 @@ namespace MilanCorp.Domain.Models
         public string  nomeDoComitente { get; set; }
         public string observacao { get; set; }
         public string endereco { get; set; }
-        public TipoDeLeilao tipoDeLeilao { get; set; }
+        public string tipoDeLeilao { get; set; }
     }
 }

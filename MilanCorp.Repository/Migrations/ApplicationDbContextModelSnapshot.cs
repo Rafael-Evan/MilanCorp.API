@@ -205,7 +205,7 @@ namespace MilanCorp.Repository.Migrations
 
                     b.Property<DateTime?>("start");
 
-                    b.Property<int>("tipoDeLeilao");
+                    b.Property<string>("tipoDeLeilao");
 
                     b.Property<string>("title");
 
