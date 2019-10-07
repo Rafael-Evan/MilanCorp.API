@@ -186,6 +186,20 @@ namespace MilanCorp.Repository.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
+            modelBuilder.Entity("MilanCorp.Domain.Models.Aniversariante", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("start");
+
+                    b.Property<string>("title");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Aniversariantes");
+                });
+
             modelBuilder.Entity("MilanCorp.Domain.Models.Evento", b =>
                 {
                     b.Property<Guid>("Id")

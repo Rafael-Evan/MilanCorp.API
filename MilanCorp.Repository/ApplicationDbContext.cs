@@ -15,6 +15,7 @@ namespace MilanCorp.Repository
         public virtual DbSet<Evento> Eventos { get; set; }
         public virtual DbSet<Material> Materiais { get; set; }
         public virtual DbSet<FileUpload> Uploads { get; set; }
+        public virtual DbSet<Aniversariante> Aniversariantes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MilanCorp.Domain
+﻿namespace MilanCorp.Domain
 {
     public partial class RbgrupoAdm
     {

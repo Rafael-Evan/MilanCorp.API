@@ -9,8 +9,8 @@ namespace MilanCorp.Domain.Models
         public DateTime? start { get; set; }
         public DateTime? end { get; set; }
         public bool? finished { get; set; }
-        public  string leilao { get; set; }
-        public string  nomeDoComitente { get; set; }
+        public string leilao { get; set; }
+        public string nomeDoComitente { get; set; }
         public string observacao { get; set; }
         public string endereco { get; set; }
         public string tipoDeLeilao { get; set; }

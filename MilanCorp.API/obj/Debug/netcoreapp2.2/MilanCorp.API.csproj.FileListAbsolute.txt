@@ -12,7 +12,6 @@ C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Deb
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.Domain.pdb
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\bin\Debug\netcoreapp2.2\MilanCorp.Repository.pdb
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.csprojAssemblyReference.cache
-C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.csproj.CoreCompileInputs.cache
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.RazorAssemblyInfo.cache
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.RazorAssemblyInfo.cs
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.API\obj\Debug\netcoreapp2.2\MilanCorp.API.AssemblyInfoInputs.cache
