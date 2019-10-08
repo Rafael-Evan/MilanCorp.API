@@ -37,7 +37,31 @@ namespace MilanCorp.API.Controllers
             }
         }
 
-        [HttpPost("cadastrarEvento")]
+        [HttpGet("AniversarianteAnoAtual")]
+        [AllowAnonymous]
+        public async Task<ActionResult> GetAniversarianteAno()
+       {
+            try
+            {
+                var results = await _context.Aniversariantes.ToListAsync();
+
+                foreach (var aniversariante in results)
+                {
+                    var AnoAtual = DateTime.Now.Year;
+                    aniversariante.start = new DateTime(AnoAtual, aniversariante.start.Value.Month, aniversariante.start.Value.Day);
+                  
+                }
+
+                return Ok(results);
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            }
+        }
+
+        [HttpPost("cadastrarAniversariante")]
         [AllowAnonymous]
         public async Task<ActionResult<Aniversariante>> PostAniversariante(Aniversariante aniversariante)
         {

@@ -12,5 +12,6 @@ namespace MilanCorp.Domain.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
          public DateTime? start { get; set; }
+        public bool ativo { get; set; }
     }
 }

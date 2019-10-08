@@ -191,6 +191,8 @@ namespace MilanCorp.Repository.Migrations
                     b.Property<Guid>("id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("ativo");
+
                     b.Property<DateTime?>("start");
 
                     b.Property<string>("title");
@@ -211,8 +213,6 @@ namespace MilanCorp.Repository.Migrations
 
                     b.Property<bool?>("finished");
 
-                    b.Property<string>("leilao");
-
                     b.Property<string>("nomeDoComitente");
 
                     b.Property<string>("observacao");
@@ -226,6 +226,28 @@ namespace MilanCorp.Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Eventos");
+                });
+
+            modelBuilder.Entity("MilanCorp.Domain.Models.EventoLeilao", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("endereco");
+
+                    b.Property<string>("nomeDoComitente");
+
+                    b.Property<string>("observacao");
+
+                    b.Property<DateTime?>("start");
+
+                    b.Property<string>("tipoDeLeilao");
+
+                    b.Property<string>("title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EventosLeiloes");
                 });
 
             modelBuilder.Entity("MilanCorp.Domain.Models.FileUpload", b =>
