@@ -27,6 +27,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
+    <PackageReference Include="EPPlus" Version="4.5.3.2" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="2.2.1" />
@@ -46,6 +47,7 @@
     <Folder Include="wwwroot\Resources\Materiais\" />
     <Folder Include="wwwroot\Resources\Automoveis\" />
     <Folder Include="wwwroot\Resources\Imoveis\" />
+    <Folder Include="wwwroot\Resources\Aniversariantes\" />
   </ItemGroup>
 
 
