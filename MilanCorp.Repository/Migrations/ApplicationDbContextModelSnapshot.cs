@@ -209,17 +209,9 @@ namespace MilanCorp.Repository.Migrations
 
                     b.Property<DateTime?>("end");
 
-                    b.Property<string>("endereco");
-
                     b.Property<bool?>("finished");
 
-                    b.Property<string>("nomeDoComitente");
-
-                    b.Property<string>("observacao");
-
                     b.Property<DateTime?>("start");
-
-                    b.Property<string>("tipoDeLeilao");
 
                     b.Property<string>("title");
 
@@ -301,6 +293,30 @@ namespace MilanCorp.Repository.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Materiais");
+                });
+
+            modelBuilder.Entity("MilanCorp.Domain.Models.Reuniao", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("data");
+
+                    b.Property<string>("departamento")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("end");
+
+                    b.Property<string>("sala")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("start");
+
+                    b.Property<string>("title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reunioes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

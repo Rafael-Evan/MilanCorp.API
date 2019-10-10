@@ -8,3 +8,4 @@ C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Debug\netcoreapp2.2\MilanCorp.Domain.csproj.CopyComplete
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Debug\netcoreapp2.2\MilanCorp.Domain.dll
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Debug\netcoreapp2.2\MilanCorp.Domain.pdb
+C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Debug\netcoreapp2.2\MilanCorp.Domain.csprojAssemblyReference.cache
