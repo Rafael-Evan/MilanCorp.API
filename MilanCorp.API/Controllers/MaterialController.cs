@@ -24,15 +24,21 @@ namespace MilanCorp.API.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<Material[]> GetMaterial()
+        public async Task<ActionResult> GetMaterial()
         {
-            IQueryable<Material> query = _context.Materiais
-                .Include(c => c.Upload)
-                .Include(c => c.Usuario);
+            try
+            {
+                IQueryable<Material> query = _context.Materiais
+               .Include(c => c.Upload)
+               .Include(c => c.Usuario);
 
+                return Ok(query);
+            }
+            catch (Exception)
+            {
 
-
-            return await query.ToArrayAsync();
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            }
 
         }
 

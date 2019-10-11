@@ -14,5 +14,6 @@ namespace MilanCorp.Domain.Identity
         public bool UserAD { get; set; }
         public List<UserRole> UserRoles { get; set; }
         public List<Material> Materiais { get; set; }
+        public List<Reuniao> Reunioes { get; set; }
     }
 }

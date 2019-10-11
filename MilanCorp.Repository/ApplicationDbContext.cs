@@ -42,6 +42,15 @@ namespace MilanCorp.Repository
             builder.Entity<Material>()
                  .HasKey(PE => new { PE.Id, PE.UploadId, PE.UserId });
 
+
+            builder.Entity<Reuniao>(reuniao =>
+            {
+                reuniao.HasOne(ur => ur.User)
+                .WithMany(r => r.Reunioes)
+                .HasForeignKey(ur => ur.UserId)
+                .IsRequired();
+            });
+
             //builder.Entity<Material>(material =>
             //{
             //    material.HasKey(ur => new { ur.Id });

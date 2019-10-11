@@ -300,12 +300,17 @@ namespace MilanCorp.Repository.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("UserId");
+
                     b.Property<DateTime?>("data");
 
                     b.Property<string>("departamento")
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("end");
+
+                    b.Property<string>("local")
+                        .HasColumnType("nvarchar(75)");
 
                     b.Property<string>("sala")
                         .HasColumnType("nvarchar(50)");
@@ -315,6 +320,8 @@ namespace MilanCorp.Repository.Migrations
                     b.Property<string>("title");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reunioes");
                 });
@@ -373,6 +380,14 @@ namespace MilanCorp.Repository.Migrations
 
                     b.HasOne("MilanCorp.Domain.Identity.User", "Usuario")
                         .WithMany("Materiais")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MilanCorp.Domain.Models.Reuniao", b =>
+                {
+                    b.HasOne("MilanCorp.Domain.Identity.User", "User")
+                        .WithMany("Reunioes")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
