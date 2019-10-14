@@ -18,10 +18,12 @@ namespace MilanCorp.API.Controllers
     public class ReuniaoController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public ReuniaoController(ApplicationDbContext context)
+        public ReuniaoController(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -45,10 +47,11 @@ namespace MilanCorp.API.Controllers
 
         [HttpPost("cadastrarReuniao")]
         [AllowAnonymous]
-        public async Task<ActionResult<Reuniao>> PostReuniao(Reuniao reuniao)
+        public async Task<IActionResult> PostReuniao(Reuniao reuniao)
         {
             int count = 0;
             reuniao.Id = new Guid();
+
             DateTime start = new DateTime(reuniao.data.Value.Year, reuniao.data.Value.Month, reuniao.data.Value.Day, reuniao.start.Hour, reuniao.start.Minute, reuniao.start.Second);
             DateTime end = new DateTime(reuniao.data.Value.Year, reuniao.data.Value.Month, reuniao.data.Value.Day, reuniao.end.Hour, reuniao.end.Minute, reuniao.end.Second);
             reuniao.start = start;
@@ -68,9 +71,13 @@ namespace MilanCorp.API.Controllers
 
                     if (itemReuniao.sala.Equals(reuniao.sala) && itemReuniao.local.Equals(reuniao.local))
                     {
-                        if (now_Start >= time_Start && now_Start <= time_Start && now_End >= time_End && now_End <= time_End)
+                        if (now_Start >= time_Start && now_End >= time_End)
                         {
-                                count = count + 1;
+                            count = count + 1;
+                        }
+                        else if (now_Start <= time_Start && now_End <= time_End)
+                        {
+                            count = count + 1;
                         }
                     }
                 }

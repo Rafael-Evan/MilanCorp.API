@@ -4,7 +4,6 @@ C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\bin\
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\bin\Release\netcoreapp2.2\Newtonsoft.Json.dll
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\bin\Release\netcoreapp2.2\Newtonsoft.Json.xml
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Release\netcoreapp2.2\MilanCorp.Domain.csprojAssemblyReference.cache
-C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Release\netcoreapp2.2\MilanCorp.Domain.csproj.CoreCompileInputs.cache
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Release\netcoreapp2.2\MilanCorp.Domain.AssemblyInfoInputs.cache
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Release\netcoreapp2.2\MilanCorp.Domain.AssemblyInfo.cs
 C:\Users\rafael.evangelista\Documents\GitHub\MilanCorp.API\MilanCorp.Domain\obj\Release\netcoreapp2.2\MilanCorp.Domain.csproj.CopyComplete
