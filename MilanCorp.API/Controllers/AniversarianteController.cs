@@ -78,16 +78,16 @@ namespace MilanCorp.API.Controllers
 
         [HttpPost("ImportarAniversariantes"), DisableRequestSizeLimit]
         [AllowAnonymous]
-        public async Task<IActionResult> ImportarAniversariantesAsync(IList<IFormFile> files)
+        public async Task<ActionResult> ImportarAniversariantesAsync(IFormFile file)
         {
             var upload = new FileUpload();
 
             var fullPath = "";
             try
             {
-                foreach (var item in Request.Form.Files)
-                {
-                    var file = item;
+                //foreach (var item in Request.Form.Files)
+                //{
+                    //var file = item;
                     var filename = Path.ChangeExtension(Guid.NewGuid().ToString(), ".xlsx");
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Resources", filename);
                     var folderName = Path.Combine("wwwroot/Resources/Aniversariantes");
@@ -101,7 +101,7 @@ namespace MilanCorp.API.Controllers
                     {
                         file.CopyTo(stream);
                     }
-                }
+                //}
 
                 FileInfo fileUp = new FileInfo(Path.Combine(fullPath));
                 string FileName = fileUp.Name.Remove(fileUp.Name.Length - 5, 5);
@@ -148,7 +148,7 @@ namespace MilanCorp.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal server error");
+                return StatusCode(500, ex);
             }
         }
     }

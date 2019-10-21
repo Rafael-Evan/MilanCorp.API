@@ -295,6 +295,24 @@ namespace MilanCorp.Repository.Migrations
                     b.ToTable("Materiais");
                 });
 
+            modelBuilder.Entity("MilanCorp.Domain.Models.Notificacao", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Assunto");
+
+                    b.Property<DateTime>("Data");
+
+                    b.Property<DateTime>("DataDaSolicitacao");
+
+                    b.Property<int>("Expirar");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notificacoes");
+                });
+
             modelBuilder.Entity("MilanCorp.Domain.Models.Reuniao", b =>
                 {
                     b.Property<Guid>("Id")
@@ -309,11 +327,9 @@ namespace MilanCorp.Repository.Migrations
 
                     b.Property<DateTime>("end");
 
-                    b.Property<string>("local")
-                        .HasColumnType("nvarchar(75)");
+                    b.Property<int>("local");
 
-                    b.Property<string>("sala")
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int>("sala");
 
                     b.Property<DateTime>("start");
 

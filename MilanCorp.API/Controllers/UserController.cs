@@ -219,7 +219,7 @@ namespace MilanCorp.API.Controllers
                 {
                     var userRole = new UserRole();
                     userRole.UserId = user.Id;
-                    userRole.RoleId = 2;
+                    userRole.RoleId = 4;
                     _context.Add(userRole);
                     _context.SaveChanges();
 

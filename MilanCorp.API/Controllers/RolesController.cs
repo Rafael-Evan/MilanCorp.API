@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MilanCorp.Domain.Identity;
 using MilanCorp.Repository;
@@ -21,6 +22,7 @@ namespace MilanCorp.API.Controllers
 
         // GET: api/Roles
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<Role>>> GetRoles()
         {
             return await _context.Roles.ToListAsync();
@@ -28,6 +30,7 @@ namespace MilanCorp.API.Controllers
 
         // GET: api/Roles/5
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<Role>> GetRole(int id)
         {
             var role = await _context.Roles.FindAsync(id);
@@ -42,6 +45,7 @@ namespace MilanCorp.API.Controllers
 
         // PUT: api/Roles/5
         [HttpPut("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> PutRole(int id, Role role)
         {
             if (id != role.Id)
@@ -72,6 +76,7 @@ namespace MilanCorp.API.Controllers
 
         // POST: api/Roles
         [HttpPost]
+        [AllowAnonymous]
         public async Task<ActionResult<Role>> PostRole(Role role)
         {
             _context.Roles.Add(role);
@@ -82,6 +87,7 @@ namespace MilanCorp.API.Controllers
 
         // DELETE: api/Roles/5
         [HttpDelete("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<Role>> DeleteRole(int id)
         {
             var role = await _context.Roles.FindAsync(id);
