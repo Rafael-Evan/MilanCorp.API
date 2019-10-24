@@ -26,7 +26,15 @@ namespace MilanCorp.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Notificacao>>> GetNotificacoes()
         {
-            return await _context.Notificacoes.ToListAsync();
+            var notificacoes = await _context.Notificacoes.ToListAsync();
+
+            var notificacaoExpirada =
+              from notificacao in notificacoes
+              where notificacao.Data.AddDays(notificacao.Expirar) >= DateTime.Now
+              select notificacao;
+
+
+            return notificacaoExpirada.ToList();
         }
 
         // GET: api/Notificacao/5

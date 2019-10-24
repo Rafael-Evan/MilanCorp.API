@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MilanCorp.API.Dtos;
 using MilanCorp.Domain.Identity;
 using MilanCorp.Domain.Models;
 using MilanCorp.Repository;
@@ -15,6 +14,7 @@ namespace MilanCorp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class ReuniaoController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -27,7 +27,6 @@ namespace MilanCorp.API.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public async Task<ActionResult> GetReuniao()
         {
             try
@@ -46,10 +45,9 @@ namespace MilanCorp.API.Controllers
         }
 
         [HttpPost("cadastrarReuniao")]
-        [AllowAnonymous]
         public async Task<IActionResult> PostReuniao(Reuniao reuniao)
         {
-            int count = 0;
+            //int count = 0;
             reuniao.Id = new Guid();
 
             DateTime start = new DateTime(reuniao.data.Value.Year, reuniao.data.Value.Month, reuniao.data.Value.Day, reuniao.start.Hour, reuniao.start.Minute, reuniao.start.Second);
@@ -59,30 +57,13 @@ namespace MilanCorp.API.Controllers
 
             var listaDeReunioes = await _context.Reunioes.ToListAsync();
 
-            foreach (var itemReuniao in listaDeReunioes)
-            {
-                if (start <= end && itemReuniao.data.Value.Date == reuniao.data.Value.Date)
-                {
-                    TimeSpan time_Start = new TimeSpan(itemReuniao.start.Hour, itemReuniao.start.Minute, itemReuniao.start.Second);
-                    TimeSpan time_End = new TimeSpan(itemReuniao.end.Hour, itemReuniao.end.Minute, itemReuniao.end.Second);
-                    TimeSpan now_Start = start.TimeOfDay;
-                    TimeSpan now_End = end.TimeOfDay;
+            var reuniaoDuplicada =
+             (from reun in listaDeReunioes
+              where reun.sala == reuniao.sala && reun.local == reuniao.local
+              && start > reun.start && start < reun.end || end > reun.start && end < reun.end
+              select reun.Id).Count();
 
-
-                    if (itemReuniao.sala.Equals(reuniao.sala) && itemReuniao.local.Equals(reuniao.local))
-                    {
-                        if (now_Start >= time_Start && now_End >= time_End)
-                        {
-                            count = count + 1;
-                        }
-                        else if (now_Start <= time_Start && now_End <= time_End)
-                        {
-                            count = count + 1;
-                        }
-                    }
-                }
-            }
-            if (count > 0)
+            if (reuniaoDuplicada > 0)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
             }
@@ -91,5 +72,27 @@ namespace MilanCorp.API.Controllers
 
             return CreatedAtAction("GetReuniao", new { id = reuniao.Id }, reuniao);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Reuniao>> DeleteReuniao(Guid id)
+        {
+            var reuniao = await _context.Reunioes.FindAsync(id);
+            if (reuniao == null)
+            {
+                return NotFound();
+            }
+
+            _context.Reunioes.Remove(reuniao);
+            await _context.SaveChangesAsync();
+
+            return reuniao;
+        }
+
+        private bool EventoExists(Guid id)
+        {
+            return _context.Notificacoes.Any(e => e.Id == id);
+        }
+
     }
 }
+
