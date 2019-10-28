@@ -122,6 +122,8 @@ namespace MilanCorp.Repository.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<string>("Cargo");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 

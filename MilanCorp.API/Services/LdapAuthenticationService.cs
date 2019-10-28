@@ -29,6 +29,7 @@ namespace MilanCorp.API.Services
             string propFirstName = "givenName";
             string propLastName = "sn";
             string propMail = "mail";
+            string propOffice = "title";
 
             try
             {
@@ -41,6 +42,7 @@ namespace MilanCorp.API.Services
                         searcher.PropertiesToLoad.Add(propFirstName);
                         searcher.PropertiesToLoad.Add(propLastName);
                         searcher.PropertiesToLoad.Add(propMail);
+                        searcher.PropertiesToLoad.Add(propOffice);
                         var result = searcher.FindOne();
                         if (result != null)
                         {
@@ -56,6 +58,10 @@ namespace MilanCorp.API.Services
                             {
                                 newUser.Email = result.Properties[propMail][0].ToString();
                             }
+                            if (result.Properties.Contains(propOffice))
+                            {
+                                newUser.Cargo = result.Properties[propOffice][0].ToString();
+                            }
 
                             newUser.Password = GerarHash.GerarCodigo();
                             newUser.Data = DateTime.UtcNow;
@@ -68,7 +74,8 @@ namespace MilanCorp.API.Services
                                 Email = newUser.Email,
                                 Password = newUser.Password,
                                 Data = newUser.Data,
-                                UserAD = newUser.UserAD
+                                UserAD = newUser.UserAD,
+                                Cargo = newUser.Cargo
                             };
                         }
                     }

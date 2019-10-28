@@ -177,6 +177,23 @@ namespace MilanCorp.API.Controllers
             }
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ListarUserPorId(int Id)
+        {
+            try
+            {
+                var user = await _userManager.FindByIdAsync(Id.ToString());
+
+                return Ok(user);
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            }
+        }
+
         [HttpPost("VerificarAcessos")]
         [AllowAnonymous]
         public async Task<IActionResult> VerificarAcessosUsuario(UserLoginDto userLogin)

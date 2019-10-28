@@ -10,6 +10,7 @@ namespace MilanCorp.Domain.Identity
     {
         [Column(TypeName = "nvarchar(150)")]
         public string FullName { get; set; }
+        public string Cargo { get; set; }
         public DateTime Data { get; set; }
         public bool UserAD { get; set; }
         public List<UserRole> UserRoles { get; set; }
