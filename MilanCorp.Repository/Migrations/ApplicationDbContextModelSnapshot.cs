@@ -244,6 +244,40 @@ namespace MilanCorp.Repository.Migrations
                     b.ToTable("EventosLeiloes");
                 });
 
+            modelBuilder.Entity("MilanCorp.Domain.Models.Ferias", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Cargo");
+
+                    b.Property<DateTime>("DataDaSolicitacao");
+
+                    b.Property<DateTime>("DataFim");
+
+                    b.Property<DateTime>("DataInicio");
+
+                    b.Property<int>("Expirar");
+
+                    b.Property<string>("NomeDoFuncionario");
+
+                    b.Property<string>("Observacao");
+
+                    b.Property<int>("QuantidadeDeDias");
+
+                    b.Property<string>("Ramal");
+
+                    b.Property<string>("Status");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Ferias");
+                });
+
             modelBuilder.Entity("MilanCorp.Domain.Models.FileUpload", b =>
                 {
                     b.Property<Guid>("Id")
@@ -385,6 +419,14 @@ namespace MilanCorp.Repository.Migrations
 
                     b.HasOne("MilanCorp.Domain.Identity.User", "User")
                         .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MilanCorp.Domain.Models.Ferias", b =>
+                {
+                    b.HasOne("MilanCorp.Domain.Identity.User", "User")
+                        .WithMany("Ferias")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
