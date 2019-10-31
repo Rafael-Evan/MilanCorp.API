@@ -89,7 +89,7 @@ namespace MilanCorp.API
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "Portal Milanx", Version = "v1" });
+                c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "Portal Milanx", Version = "V1" });
             });
 
             services.Configure<IISOptions>(o =>
@@ -115,7 +115,7 @@ namespace MilanCorp.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Portal Milanx V1");
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyAPI V1");
                 });
             }
             else

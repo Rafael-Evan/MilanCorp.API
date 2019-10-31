@@ -20,6 +20,7 @@ namespace MilanCorp.Repository
         public virtual DbSet<Reuniao> Reunioes { get; set; }
         public virtual DbSet<Notificacao> Notificacoes { get; set; }
         public virtual DbSet<Ferias> Ferias { get; set; }
+        public virtual DbSet<Recebimento> Recebimentos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -57,6 +58,14 @@ namespace MilanCorp.Repository
             {
                 ferias.HasOne(ur => ur.User)
                 .WithMany(r => r.Ferias)
+                .HasForeignKey(ur => ur.UserId)
+                .IsRequired();
+            });
+
+            builder.Entity<Recebimento>(recebimentos =>
+            {
+                recebimentos.HasOne(ur => ur.User)
+                .WithMany(r => r.Recebimentos)
                 .HasForeignKey(ur => ur.UserId)
                 .IsRequired();
             });

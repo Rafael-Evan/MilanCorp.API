@@ -349,6 +349,32 @@ namespace MilanCorp.Repository.Migrations
                     b.ToTable("Notificacoes");
                 });
 
+            modelBuilder.Entity("MilanCorp.Domain.Models.Recebimento", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DataDoRecebimento");
+
+                    b.Property<string>("NumeroDeRastreamento");
+
+                    b.Property<int>("Quantidade");
+
+                    b.Property<string>("RecebidoPor");
+
+                    b.Property<string>("Remetente");
+
+                    b.Property<string>("Status");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Recebimentos");
+                });
+
             modelBuilder.Entity("MilanCorp.Domain.Models.Reuniao", b =>
                 {
                     b.Property<Guid>("Id")
@@ -440,6 +466,14 @@ namespace MilanCorp.Repository.Migrations
 
                     b.HasOne("MilanCorp.Domain.Identity.User", "Usuario")
                         .WithMany("Materiais")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MilanCorp.Domain.Models.Recebimento", b =>
+                {
+                    b.HasOne("MilanCorp.Domain.Identity.User", "User")
+                        .WithMany("Recebimentos")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

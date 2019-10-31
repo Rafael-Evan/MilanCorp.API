@@ -17,5 +17,6 @@ namespace MilanCorp.Domain.Identity
         public List<Material> Materiais { get; set; }
         public List<Reuniao> Reunioes { get; set; }
         public List<Ferias> Ferias { get; set; }
+        public List<Recebimento> Recebimentos { get; set; }
     }
 }

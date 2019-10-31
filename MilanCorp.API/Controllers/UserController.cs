@@ -22,6 +22,7 @@ namespace MilanCorp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class UserController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -46,9 +47,24 @@ namespace MilanCorp.API.Controllers
             _authService = authService;
         }
 
+        [HttpGet("ListarTodosUsuarios")]
+        public async Task<ActionResult> GetUsers()
+        {
+            try
+            {
+                var results = await _context.Users.ToListAsync();
+
+                return Ok(results);
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            }
+        }
+
 
         [HttpPost("Login")]
-        [AllowAnonymous]
         public async Task<IActionResult> Login(UserLoginDto userLogin)
         {
             try
@@ -104,7 +120,6 @@ namespace MilanCorp.API.Controllers
         }
 
         [HttpPost("LoginAD")]
-        [AllowAnonymous]
         public async Task<IActionResult> LoginAD(UserLoginDto userLogin)
         {
             try
@@ -138,7 +153,6 @@ namespace MilanCorp.API.Controllers
 
 
         [HttpGet("FullName/{id}")]
-        [AllowAnonymous]
         public async Task<ActionResult> GetFullName(int id)
         {
             try
@@ -161,7 +175,6 @@ namespace MilanCorp.API.Controllers
         }
 
         [HttpPost("Id")]
-        [AllowAnonymous]
         public async Task<IActionResult> GetUserId(UserLoginDto userLogin)
         {
             try
@@ -178,7 +191,6 @@ namespace MilanCorp.API.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public async Task<IActionResult> ListarUserPorId(int Id)
         {
             try
@@ -195,7 +207,6 @@ namespace MilanCorp.API.Controllers
         }
 
         [HttpPost("VerificarAcessos")]
-        [AllowAnonymous]
         public async Task<IActionResult> VerificarAcessosUsuario(UserLoginDto userLogin)
         {
             try
@@ -218,7 +229,6 @@ namespace MilanCorp.API.Controllers
 
 
         [HttpPost("Register")]
-        [AllowAnonymous]
         public async Task<ActionResult> Register(UserDto userDto)
         {
             try
