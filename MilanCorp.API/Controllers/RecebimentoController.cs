@@ -25,23 +25,14 @@ namespace MilanCorp.API.Controllers
 
         // GET: api/Recebimento
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Recebimento>>> GetRecebimentos()
-        {
-            return await _context.Recebimentos.ToListAsync();
-        }
-
-        [HttpGet("MeusRecebimentos")]
-        public async Task<ActionResult> GetMeusRecebimentoss(int userId)
+        public async Task<ActionResult> GetRecebimentos()
         {
             try
             {
-                var ListaDeferias = await _context.Recebimentos.ToListAsync();
+                IQueryable<Recebimento> query = _context.Recebimentos
+               .Include(c => c.User);
 
-                var meusRecebimentos = from recebimentos in ListaDeferias
-                                       where recebimentos.UserId == userId && recebimentos.Status == "Aguardando Retirada"
-                                       select new { recebimentos };
-
-                return Ok(meusRecebimentos);
+                return Ok(query);
             }
             catch (Exception)
             {
@@ -49,6 +40,26 @@ namespace MilanCorp.API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
             }
         }
+
+        //[HttpGet("MeusRecebimentos")]
+        //public async Task<ActionResult> GetMeusRecebimentoss(int userId)
+        //{
+        //    try
+        //    {
+        //        var ListaDeferias = await _context.Recebimentos.ToListAsync();
+
+        //        var meusRecebimentos = from recebimentos in ListaDeferias
+        //                               where rece && recebimentos.Status == "Aguardando Retirada"
+        //                               select new { recebimentos };
+
+        //        return Ok(meusRecebimentos);
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+        //    }
+        //}
 
         // GET: api/Recebimento/5
         [HttpGet("{id}")]
