@@ -10,13 +10,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
-      <publishTime>03/09/2019 11:22:33</publishTime>
+      <publishTime>09/03/2019 11:22:33</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>01/10/2019 14:25:26</publishTime>
+      <publishTime>10/01/2019 14:25:26</publishTime>
     </File>
     <File Include="Program.cs">
-      <publishTime>11/09/2019 17:49:01</publishTime>
+      <publishTime>09/11/2019 17:49:01</publishTime>
     </File>
     <File Include="Services/LdapAuthenticationService.cs">
       <publishTime>01/01/0001 00:00:00</publishTime>
