@@ -61,6 +61,39 @@ namespace MilanCorp.API.Controllers
         //    }
         //}
 
+        // GET: api/Recebimento
+        [HttpGet("PorData")]
+        public async Task<ActionResult> GetRecebimentosPorData(DateTime data, int userId)
+        {
+            try
+            {
+                IQueryable<Recebimento> recebimentos = _context.Recebimentos
+               .Include(c => c.User);
+
+                List<Recebimento> recebimento = new List<Recebimento>();
+
+
+                if (userId == 0)
+                {
+                    recebimento = recebimentos.Where(x => x.DataDoRecebimento.Date == data.Date).ToList();
+                }
+                else
+                {
+                    recebimento = recebimentos.Where(x => x.UserId== userId && x.DataDoRecebimento.Date == data.Date).ToList();
+                }
+               
+
+                return Ok(recebimento);
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            }
+        }
+
+
+
         // GET: api/Recebimento/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Recebimento>> GetRecebimento(Guid id)

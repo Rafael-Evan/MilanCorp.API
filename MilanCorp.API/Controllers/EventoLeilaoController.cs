@@ -40,6 +40,42 @@ namespace MilanCorp.API.Controllers
             }
         }
 
+        [HttpGet("PorData")]
+        public async Task<ActionResult> GetEventoLeilaoPorData(DateTime dataInicial, DateTime dataFinal, string nomeDoComitente, string tipoDeLeilao)
+        {
+            try
+            {
+                IQueryable<EventoLeilao> eventoLeiloes = _context.EventosLeiloes;
+
+                List<EventoLeilao> eventoLeilao = new List<EventoLeilao>();
+
+                if (nomeDoComitente == null && tipoDeLeilao == null)
+                {
+                    eventoLeilao = eventoLeiloes.Where(x => x.start >= dataInicial.Date && x.start <= dataFinal.Date).OrderBy(x => x.start).ToList();
+                }
+                else if (nomeDoComitente != null && tipoDeLeilao == null)
+                {
+                    eventoLeilao = eventoLeiloes.Where(x => x.start >= dataInicial.Date && x.start <= dataFinal.Date && x.nomeDoComitente == nomeDoComitente).OrderBy(x => x.start).ToList();
+                }
+                else if (tipoDeLeilao != null && nomeDoComitente == null)
+                {
+                    eventoLeilao = eventoLeiloes.Where(x => x.start >= dataInicial.Date && x.start <= dataFinal.Date && x.tipoDeLeilao == tipoDeLeilao).OrderBy(x => x.start).ToList();
+                }
+                else
+                {
+                    eventoLeilao = eventoLeiloes.Where(x => x.start >= dataInicial.Date && x.start <= dataFinal.Date && x.tipoDeLeilao == tipoDeLeilao && x.nomeDoComitente == nomeDoComitente).OrderBy(x => x.start).ToList();
+                }
+
+
+                return Ok(eventoLeilao);
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            }
+        }
+
         [HttpPost("cadastrarEventoLeilao")]
         public async Task<ActionResult<EventoLeilao>> PostEvento(EventoLeilao eventoLeilao)
         {
