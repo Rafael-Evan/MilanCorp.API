@@ -41,26 +41,6 @@ namespace MilanCorp.API.Controllers
             }
         }
 
-        //[HttpGet("MeusRecebimentos")]
-        //public async Task<ActionResult> GetMeusRecebimentoss(int userId)
-        //{
-        //    try
-        //    {
-        //        var ListaDeferias = await _context.Recebimentos.ToListAsync();
-
-        //        var meusRecebimentos = from recebimentos in ListaDeferias
-        //                               where rece && recebimentos.Status == "Aguardando Retirada"
-        //                               select new { recebimentos };
-
-        //        return Ok(meusRecebimentos);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
-        //    }
-        //}
-
         // GET: api/Recebimento
         [HttpGet("PorData")]
         public async Task<ActionResult> GetRecebimentosPorData(DateTime data, int userId)
